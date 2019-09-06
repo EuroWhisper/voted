@@ -1,0 +1,16 @@
+.poll-listing {
+    background-color: #b10000;
+    border-radius: 5px;
+    margin-top: 24px;
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.poll-option {
+    display: flex;
+    box-sizing: border-box;
+    padding: 24px;
+    background-color: white;
+    border-radius: 5px;
+    color: #333;
+}

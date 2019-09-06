@@ -1,0 +1,7 @@
+.poll-result {
+    background-color: #b10000;
+    border-radius: 5px;
+    margin-top: 24px;
+    box-sizing: border-box;
+    padding: 24px;
+}

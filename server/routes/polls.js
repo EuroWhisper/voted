@@ -22,34 +22,40 @@ polls.post('/', (req, res) => {
     });
 });
 
-// Retrieve all polls
-polls.get('/', (req, res) => {
-//     I suggest you to use 2 queries:
+// URL example: /polls/?skip=10
+// Fetch 10 polls 
+// skip: optional param for pagination.
+polls.get('/', async (req, res) => {
+    // 1. Set default skip value to 0 and limit number of items returned.
+    let skip = 0;
+    const limit = 10;
+    // 2. Check if user has provided skip param with the request.
+    if (req.query.skip) {
+        // Convert the skip param value from string to int.
+        skip = parseInt(req.query.skip);
+    }
+    // 3. Asyncronously get the total number of polls in collection
+    const totalNumPolls = await Poll.estimatedDocumentCount();
+    // 4. Create an offset that will result in newest polls being returned first
+    // instead of the oldest polls being returned first.
+    const offset = ((totalNumPolls - limit) - skip);
 
-// db.collection.count() will return total number of items. This value is stored somewhere in Mongo and it is not calculated.
-
-// db.collection.find().skip(20).limit(10) here I assume you could use a sort by some field, so do not forget to add an index on this field. This query will be fast too.
-
-// I think that you shouldn't query all items and than perform skip and take, cause later when you have big data you will have problems with data transferring and processing.
-
-
-    // If request has no pagination params, return all polls.
-    if (!req.body) {
-        // TODO: Return all polls regardless of category and with no pagination.
-        Poll.find({}).then((polls) => {
-            // 3. If no polls were found
+    // 5. Attempt to find a number of polls restricted by value of limit, 
+    // and with the index offset as defined above.
+    Poll.find().skip(offset).limit(limit).then((polls) => {
+        //console.log(polls);
+        // If no polls were found
         if (polls.length === 0) {
-            // Return 404 not found status.
+            // 6. Return 404 not found status.
             return res.sendStatus(404);
         }
-
-        // 3. If polls were found, return them.
-        return res.send(polls);
-        }).catch((err) => {
-            // 4. Return 500 error & error object if something went wrong.
-            return res.status(500).send(error);
-        });
-    }
+        // 6. Return the found Polls, with 200 status code.
+        return res.status(200).send(polls);
+    // 5. If something went wrong 
+    }).catch((err) => {
+        // 6. Return 500 error code & error object.
+        return res.status(500).send(error);
+    });
 });
 
 // Retrieve all polls for a given category

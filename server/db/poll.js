@@ -13,6 +13,7 @@ const pollSchema = new mongoose.Schema({
             "movies",
             "television",
             "music",
+            "gaming",
             "sports",
             "culture",
             "politics"
@@ -29,6 +30,7 @@ const pollSchema = new mongoose.Schema({
                 votes: {
                     type: Number,
                     required: true,
+                    default: 0,
                     min: 0
                 }
             }

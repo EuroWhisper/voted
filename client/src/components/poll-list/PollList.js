@@ -6,9 +6,20 @@ import Axios from '../../axios-config';
 
 class PollList extends React.Component {
 
+    async fetchPolls() {
+        try {
+            const res = await Axios.get('/polls');
+            const polls = res.data;
+            this.props.setPolls(polls);
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
     async fetchPollsByCategory(category) {
         try {
-            const polls =  await Axios.get(`/polls/${category}`);
+            const res =  await Axios.get(`/polls/${category}`);
+            const polls = res.data;
             this.props.setPolls(polls);
         } catch(error) {
             console.log(error);
@@ -16,8 +27,11 @@ class PollList extends React.Component {
     }
 
     componentDidMount() {
-
-        this.fetchPollsByCategory(this.props.category);
+        if (this.props.category === "all") {
+            this.fetchPolls();
+        } else {
+            this.fetchPollsByCategory(this.props.category);
+        }
     }
 
     renderPolls() {

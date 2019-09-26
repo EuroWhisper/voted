@@ -1,7 +1,8 @@
 import polls from './polls';
+import modals from './modals';
 import {combineReducers} from 'redux';
 
-const reducers = combineReducers({polls});
+const reducers = combineReducers({polls: polls, modalType: modals});
 
 export default reducers;
 

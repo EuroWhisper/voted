@@ -39,7 +39,7 @@ class PollList extends React.Component {
 
         if (polls.length > 0) {
             const pollCollection = polls.map((value) => {
-                return <Poll poll={value}  />;
+                return <Poll key={value._id} poll={value}  />;
             });
     
             return pollCollection;

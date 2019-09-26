@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './navbar.css';
+import {showAddPollModal} from '../../actions/index';
 
 class Navbar extends React.Component {
+
     render() {
         return (
             <nav className="navigation-bar">
@@ -24,7 +27,7 @@ class Navbar extends React.Component {
                                 <li><Link to="/politics">Politics</Link></li>
                             </ul>
                         </div>
-                        <button className="submit-poll-button">Submit Poll</button>
+                        <button className="submit-poll-button" onClick={() => {this.props.showAddPollModal();}}>Submit Poll</button>
                     </div>
                 </div>
             </nav>
@@ -32,4 +35,10 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = function(state) {
+    return {
+        modalType: state.modalType
+    };
+};
+
+export default connect(mapStateToProps, {showAddPollModal: showAddPollModal})(Navbar);

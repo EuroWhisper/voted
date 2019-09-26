@@ -7,6 +7,7 @@ polls.get('/:category', (req, res) => {
 
 // Create a new Poll
 polls.post('/', (req, res) => {
+    console.clear();
     // If the request body is empty
     if (!req.body) {
         // Return 'Bad Request' status
@@ -15,7 +16,7 @@ polls.post('/', (req, res) => {
     console.log(req.body);
     Poll.create(req.body).then((doc) => {
         console.log("Poll added");
-        return res.sendStatus(200);
+        return res.status(200).send(doc);
     }).catch((err) => {
         console.log(err);
         return res.sendStatus(500);

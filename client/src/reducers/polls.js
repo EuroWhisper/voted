@@ -1,4 +1,4 @@
-import {SET_POLLS} from '../actions/actiontypes';
+import {SET_POLLS, ADD_POLL} from '../actions/actiontypes';
 
 const initialState = [
     {
@@ -45,6 +45,8 @@ const polls = function(state = [], action) {
     switch(action.type) {
         case SET_POLLS:
             return action.payload;
+        case ADD_POLL:
+            return [action.payload, ...state];
         default:
             return state;
     }

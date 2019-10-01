@@ -9,8 +9,8 @@ class PollListing extends React.Component {
         // console.log(this.props.poll);
         const optionsElements = options.map((option, index) => {
             return (<div className="poll-option" key={index}>
-                <input type="checkbox" onClick={() => {this.props.addVote(this.props.poll._id, index);}} />
-                <h3>{option.description}</h3>
+                <input className="vote-checkbox" type="checkbox" onClick={() => {this.props.addVote(this.props.poll._id, index);}} />
+                <h4>{option.description}</h4>
             </div>);
         });
 
@@ -20,7 +20,7 @@ class PollListing extends React.Component {
     render() {
         return (
             <div className="poll-listing">
-                <h2>{this.props.poll.question}</h2>
+                <h3>{this.props.poll.question}</h3>
                 {this.renderOptions()}
             </div>
         );

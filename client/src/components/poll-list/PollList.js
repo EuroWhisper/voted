@@ -18,7 +18,7 @@ class PollList extends React.Component {
 
     async fetchPollsByCategory(category) {
         try {
-            const res =  await Axios.get(`/polls/${category}`);
+            const res =  await Axios.get(`/polls/category/${category}`);
             const polls = res.data;
             this.props.setPolls(polls);
         } catch(error) {

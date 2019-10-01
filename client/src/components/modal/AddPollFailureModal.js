@@ -1,4 +1,5 @@
 import React from 'react';
+import './add-poll-failure-modal.css';
 
 class AddPollFailureModal extends React.Component {
     render() {

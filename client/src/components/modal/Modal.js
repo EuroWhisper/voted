@@ -10,9 +10,9 @@ class Modal extends React.Component {
     renderModal() {
         if (this.props.modalType != null) {
             return (
-                <div className="modal">
+                <div className="modal" >
                     <div className="modal-inner">
-                        <button onClick={this.props.hideModal}>x</button>
+                        <button className="close-button" onClick={this.props.hideModal}>x</button>
                         {this.renderChildModal()}
                     </div>
                 </div>

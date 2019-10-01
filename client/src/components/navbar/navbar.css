@@ -1,6 +1,7 @@
 .navigation-bar {
     height: 120px;
     background-color: #b10000;
+    padding: 24px;
 }
 
 .navigation-bar-inner {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './add-poll-success-modal.css';
 
 class AddPollSuccessModal extends React.Component {
     render() {

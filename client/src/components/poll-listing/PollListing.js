@@ -1,13 +1,15 @@
 import React from 'react';
 import './poll-listing.css';
+import {addVote} from '../../actions/index';
+import { connect } from 'react-redux';
 
 class PollListing extends React.Component {
     renderOptions() {
         const options = this.props.poll.options;
-
-        const optionsElements = options.map((option) => {
-            return (<div className="poll-option">
-                <input type="checkbox" />
+        // console.log(this.props.poll);
+        const optionsElements = options.map((option, index) => {
+            return (<div className="poll-option" key={index}>
+                <input type="checkbox" onClick={() => {this.props.addVote(this.props.poll._id, index);}} />
                 <h3>{option.description}</h3>
             </div>);
         });
@@ -25,4 +27,4 @@ class PollListing extends React.Component {
     }
 }
 
-export default PollListing;
+export default connect(null, {addVote: addVote})(PollListing);

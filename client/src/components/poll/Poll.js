@@ -1,16 +1,20 @@
 import React from 'react';
 import PollListing from '../poll-listing/PollListing';
 import PollResult from '../poll-result/PollResult';
+import {alreadyVoted} from '../../votecheck';
 
 class Poll extends React.Component {
 
     renderPoll() {
         // 1. Determine whether user has already voted on this poll.
         const poll = this.props.poll;
-        // True: Render a PollResult component, to display the current result of the poll.
-        return <PollResult poll={poll} />;
+        if (alreadyVoted(poll._id)) {
+            // True: Render a PollResult component, to display the current result of the poll.
+            // return <PollResult poll={poll} />;
+            return <PollResult poll={poll} />;
+        }
         // False: Render the poll listing, so that the user can vote on it.
-        // return <PollListing poll={poll} />;
+         return <PollListing poll={poll} />;
     }
     
     render() {

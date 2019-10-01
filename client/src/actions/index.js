@@ -1,5 +1,6 @@
-import { SET_POLLS, ADD_POLL, SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, HIDE_MODAL } from './actiontypes';
+import { SET_POLLS, ADD_POLL, UPDATE_POLL, ADD_VOTE, SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, HIDE_MODAL } from './actiontypes';
 import Axios from '../axios-config';
+import {setPollVoted} from '../votecheck';
 
 export function setPolls(polls) {
     return {
@@ -24,6 +25,26 @@ export function addPoll(poll) {
         }
         
         
+    };
+}
+
+export function updatePoll(pollID, poll) {
+    return {
+        type: UPDATE_POLL,
+        payload: poll
+    };
+}
+
+export function addVote(pollID, optionIndex) {
+    return async (dispatch) => {
+        try {
+            let result = await Axios.post('/vote/' + pollID, {optionIndex: optionIndex});
+            setPollVoted(pollID);
+            dispatch(updatePoll(pollID, result.data));
+            console.log(result.data);
+        } catch (err) {
+            console.log(err);
+        }
     };
 }
 

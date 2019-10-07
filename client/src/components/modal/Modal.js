@@ -7,12 +7,14 @@ import AddPollSuccessModal from './AddPollSuccessModal';
 import AddPollFailureModal from './AddPollFailureModal';
 
 class Modal extends React.Component {
+
+    // Decide whether or not a modal should be rendered.
     renderModal() {
         if (this.props.modalType != null) {
             return (
                 <div className="modal" >
                     <div className="modal-inner">
-                        <button className="close-button" onClick={this.props.hideModal}>x</button>
+                        <button className="close-button" onClick={this.props.hideModal}></button>
                         {this.renderChildModal()}
                     </div>
                 </div>
@@ -21,6 +23,7 @@ class Modal extends React.Component {
         return null;
     }
 
+    // Decide which specific child modal should be rendered.
     renderChildModal() {
         switch(this.props.modalType) {
             case 'ADD_POLL_MODAL':
@@ -34,6 +37,7 @@ class Modal extends React.Component {
         }
     }
 
+    // Render the modal.
     render() {
         return this.renderModal();
     }

@@ -23,10 +23,9 @@ class App extends React.Component {
             <Route exact path="/television" render={() => <PollList category="television" /> } />
             <Route exact path="/music" render={() => <PollList category="music" /> } />
             <Route exact path="/gaming" render={() => <PollList category="gaming" /> } />
-            <Route exact path="/sport" render={() => <PollList category="sport" /> } />
+            <Route exact path="/sports" render={() => <PollList category="sports" /> } />
             <Route exact path="/culture" render={() => <PollList category="culture" /> } />
             <Route exact path="/politics" render={() => <PollList category="politics" /> } />
-          
         </div>
         </Router>
         <Footer />

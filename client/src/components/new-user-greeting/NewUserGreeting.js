@@ -6,15 +6,19 @@ class NewUserGreeting extends React.Component {
         returningVisitor: null
     };
 
+    // Determine whether or not this is the user's first time visiting the site.
     isNewUser() {
         return (window.localStorage.getItem("returning visitor") === null);
     }
 
+    // Make a record of the user having visited the site (there has to be a better way to do this).
     markVisited() {
         window.localStorage.setItem("returning visitor", "returning visitor");
     }
 
+    // Render the greeting message.
     renderGreeting() {
+        // If user is new, render greeting.
         if (this.isNewUser()) {
             this.markVisited();
             return (
@@ -29,6 +33,7 @@ class NewUserGreeting extends React.Component {
                 </section>
             );
         }
+        // If user is not new, don't render anything.
         return null;
     }
 

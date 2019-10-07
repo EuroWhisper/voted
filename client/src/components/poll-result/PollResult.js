@@ -3,17 +3,20 @@ import { Chart } from "react-google-charts";
 import './poll-result.css';
 
 class PollResult extends React.Component {
+    // Render a pie chart for the poll (using Google Charts)
     renderChart() {
-        const question = this.props.poll.question;
+        // 1. Set the pie chart's dataset to contain options and votes.
         const options = this.props.poll.options;
         let data = [
             ["Option", "Votes"]
         ];
 
+        // 2. Add all of the poll's options and their votes to the dataset for the chart.
         options.forEach((option) => {
             data.push([option.description, option.votes]);
         });
 
+        // 3. Create the pie chart template for rendering.
         return (
             <Chart
                 width={'100%'}
@@ -36,6 +39,7 @@ class PollResult extends React.Component {
 
     }
 
+    // Render the pie chart.
     render() {
         return (
             <div className="poll-result">

@@ -1,7 +1,11 @@
 .poll-result {
-    background-color: #b10000;
-    border-radius: 5px;
-    margin-top: 24px;
+    background-color: #4275CE;
+    border-radius: 16px;
+    margin-top: 12px;
     box-sizing: border-box;
     padding: 24px;
+}
+
+.poll-result h3 {
+    margin-bottom: 24px;
 }

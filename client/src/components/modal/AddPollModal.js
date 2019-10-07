@@ -3,6 +3,7 @@ import {addPoll} from '../../actions/index';
 
 import './add-poll-modal.css';
 import { connect } from 'react-redux';
+
 class AddPollModal extends React.Component {
     state = {
         question: "",
@@ -98,7 +99,7 @@ class AddPollModal extends React.Component {
             return (
                 <div className="voting-option" key={option.id}>
                     <p>{option.value}</p>
-                    <button className="delete-option-button" onClick={() => {this.deleteOption(option.id);}}>x</button>
+                    <button className="delete-option-button" onClick={() => {this.deleteOption(option.id);}}></button>
                 </div>
             );
         });
@@ -122,7 +123,7 @@ class AddPollModal extends React.Component {
                             <option value="television">Television</option>
                             <option value="music">Music</option>
                             <option value="gaming">Gaming</option>
-                            <option value="sport">Sport</option>
+                            <option value="sports">Sports</option>
                             <option value="culture">Culture</option>
                             <option value="politics">Politics</option>
                         </select>

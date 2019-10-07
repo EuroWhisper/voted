@@ -12,5 +12,5 @@ app.use(express.json());
 app.use('/polls', pollsRouter);
 app.use('/vote', voteRouter);
 
-
-app.listen(3001);
+const port = process.env.PORT || 3001
+app.listen(port);

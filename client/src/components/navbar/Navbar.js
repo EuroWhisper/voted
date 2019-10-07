@@ -3,8 +3,22 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './navbar.css';
 import {showAddPollModal} from '../../actions/index';
+import {showMobileMenu, hideMobileMenu} from '../../mobile-menu';
 
 class Navbar extends React.Component {
+    state = {
+        mobileMenuVisible: false
+    }
+
+    toggleMobileMenu() {
+        if (this.state.mobileMenuVisible) {
+            hideMobileMenu();
+            this.setState({mobileMenuVisible: false});
+        } else {
+            showMobileMenu();
+            this.setState({mobileMenuVisible: true});
+        }
+    }
 
     render() {
         return (
@@ -14,20 +28,26 @@ class Navbar extends React.Component {
                         <div className="navbar-logo">
                             
                         </div>
+                        <Link to="/" className="brand"><h1>Voted</h1></Link>
                         <div className="navbar-menu-wrapper">
-                            <h1>Voted</h1>
+                            
                             <ul className="navbar-menu">
-                                <li>Vote on:</li>
                                 <li><Link to="/movies">Movies</Link></li>
                                 <li><Link to="/television">Television</Link></li>
                                 <li><Link to="/music">Music</Link></li>
                                 <li><Link to="/gaming">Gaming</Link></li>
-                                <li><Link to="/sport">Sport</Link></li>
+                                <li><Link to="/sports">Sports</Link></li>
                                 <li><Link to="/culture">Culture</Link></li>
                                 <li><Link to="/politics">Politics</Link></li>
                             </ul>
                         </div>
                         <button className="submit-poll-button" onClick={() => {this.props.showAddPollModal();}}>Submit Poll</button>
+                        
+                        <div className="burger-menu"  onClick={() => {this.toggleMobileMenu();}}>
+                            <div className="line-1"></div>
+                            <div className="line-2"></div>
+                            <div className="line-3"></div>
+                        </div>
                     </div>
                 </div>
             </nav>

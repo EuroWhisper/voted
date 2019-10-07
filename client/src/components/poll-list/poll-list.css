@@ -1,0 +1,7 @@
+.poll-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    column-gap: 12px;
+    justify-content: space-between;
+
+}

@@ -12,39 +12,70 @@ h2 {
 }
 
 .add-poll-form input {
+    box-sizing: border-box;
+    color: #B2CFFF;
+    font-size: 16px;
     width: 100%;
-    height: 40px;
+    height: 48px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #B2B2B2;
+    border-width: 1px;
+    
+    padding: 12px;
 }
 
 .add-poll-form select {
-    height: 40px;
-    width: 150px;
+    height: 48px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-color: #B2B2B2;
+    padding: 12px;
+    width: 200px;
 }
 
 .add-option-button {
+    font-size: 16px;
+    margin-top: 6px;
     height: 40px;
     width: 150px;
     color: white;
-    background-color: grey;
+    
+    background-color: #4275CE;
     border-style: none;
+    border-radius: 6px;
+}
+
+.add-option-button:hover {
+    background-color: rgb(185, 185, 185);
 }
 
 .submit-poll {
-    color: white;
-    background-color: #b10000;
-    border-style: none;
+    font-size: 16px;
+    color: white !important;
+    background-color: #4275CE;
+    border-style: none !important;
 }
 
 fieldset {
     padding: 0;
-    margin: 0 0 12px 0;
+    margin: 0 0 24px 0;
     display: flex;
     flex-direction: column;
     border-style: none;
 }
 
+label {
+    color: #0B1F41;
+    margin-bottom: 6px;
+}
+
 .voting-option {
+    color: #4275CE;
+    border-radius: 6px;
+    height: 44px;
     padding: 0 12px 0 12px;
+    margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,16 +83,13 @@ fieldset {
 }
 
 .voting-option:hover {
-    background-color: rgb(214, 214, 214);
+    background-color: #DEEAFF;
 }
 
 .voting-option .delete-option-button {
-    font-size: 18px;
-    height: 30px;
-    width: 30px;
+    height: 16px;
+    width: 16px;
     flex-shrink: 0;
-    background-color: #757575;
-    color: white;
     border-style: none;
-    border-radius: 50%;
+    background: url(./delete-icon-hovered.svg);
 }

@@ -83,14 +83,15 @@
     width: 25px;
     height: 3px;
 }
+
 .active {
     display: flex !important;
 }
 
 @media(max-width: 1200px) {
-    .navigation-bar .navbar-logo {
+    /* .navigation-bar .navbar-logo {
         display: none;
-    }
+    } */
 }
 
 @media(max-width: 970px) {
@@ -113,6 +114,7 @@
         box-sizing: border-box;
         position: absolute;
         top: 70px;
+        
         width: 100%;
         display: none;
         z-index: 9;

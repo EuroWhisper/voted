@@ -26,9 +26,9 @@ class Navbar extends React.Component {
                 <div className="container">
                     <div className="navigation-bar-inner">
                         <div className="branding">
-                            <div className="navbar-logo">
+                        <Link to="/" className="brand"><div className="navbar-logo">
                                 
-                            </div>
+                            </div></Link>
                             <Link to="/" className="brand"><h1>Voted</h1></Link>
 
                         </div>

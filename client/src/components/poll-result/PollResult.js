@@ -17,6 +17,28 @@ class PollResult extends React.Component {
         });
 
         // 3. Create the pie chart template for rendering.
+        if (window.innerWidth < 768) {
+            return (
+                <Chart
+                    width={'100%'}
+                    height={'400px'}
+                    chartType="PieChart"
+                    loader={<div>Loading Chart</div>}
+                    data={data}
+                    options={{
+                        is3D: true,
+                        legend: {
+                            position: 'top',
+                            alignment: 'center',
+                            textStyle: {
+                                fontSize: 16
+                            }
+                        }
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                />
+            );
+        }
         return (
             <Chart
                 width={'100%'}

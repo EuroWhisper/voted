@@ -25,11 +25,19 @@ class Navbar extends React.Component {
             <nav className="navigation-bar">
                 <div className="container">
                     <div className="navigation-bar-inner">
-                        <div className="navbar-logo">
-                            
+                        <div className="branding">
+                            <div className="navbar-logo">
+                                
+                            </div>
+                            <Link to="/" className="brand"><h1>Voted</h1></Link>
+
                         </div>
-                        <Link to="/" className="brand"><h1>Voted</h1></Link>
-                        <div className="navbar-menu-wrapper">
+                        <div className="burger-menu"  onClick={() => {this.toggleMobileMenu();}}>
+                            <div className="line-1"></div>
+                            <div className="line-2"></div>
+                            <div className="line-3"></div>
+                        </div>
+                        
                             
                             <ul className="navbar-menu">
                                 <li><Link to="/movies">Movies</Link></li>
@@ -39,15 +47,9 @@ class Navbar extends React.Component {
                                 <li><Link to="/sports">Sports</Link></li>
                                 <li><Link to="/culture">Culture</Link></li>
                                 <li><Link to="/politics">Politics</Link></li>
+                                <li><button className="submit-poll-button" onClick={() => {this.props.showAddPollModal();}}>Submit Poll</button></li>
                             </ul>
-                        </div>
-                        <button className="submit-poll-button" onClick={() => {this.props.showAddPollModal();}}>Submit Poll</button>
                         
-                        <div className="burger-menu"  onClick={() => {this.toggleMobileMenu();}}>
-                            <div className="line-1"></div>
-                            <div className="line-2"></div>
-                            <div className="line-3"></div>
-                        </div>
                     </div>
                 </div>
             </nav>

@@ -121,10 +121,7 @@
         padding: 24px;
         background-color: #4275CE;
         flex-direction: column;
-    }
-
-    .navigation-bar .navbar-menu li:first-child {
-        display: none;
+        border-bottom: 1px solid rgb(130, 216, 255);
     }
 
     .navigation-bar .navbar-menu li {

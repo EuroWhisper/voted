@@ -1,4 +1,4 @@
-import { SET_POLLS, ADD_POLL, UPDATE_POLL, ADD_VOTE, SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, HIDE_MODAL } from './actiontypes';
+import { SET_POLLS, ADD_POLL, UPDATE_POLL, ADD_VOTE, SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, SHOW_LOADING_POLLS_MODAL, HIDE_MODAL } from './actiontypes';
 import Axios from '../axios-config';
 import {setPollVoted} from '../votecheck';
 
@@ -78,6 +78,14 @@ export function showAddPollFailureModal() {
     return {
         type: SHOW_ADD_POLL_FAILURE_MODAL,
         payload: 'ADD_POLL_FAILURE_MODAL'
+    };
+}
+
+// Display the modal containing the loading spinner for fetching all polls from database.
+export function showLoadingPollsModal() {
+    return {
+        type: SHOW_LOADING_POLLS_MODAL,
+        payload: 'LOADING_POLLS_MODAL'
     };
 }
 

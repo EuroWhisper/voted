@@ -5,6 +5,7 @@ import {hideModal} from '../../actions/index';
 import './modal.css';
 import AddPollSuccessModal from './AddPollSuccessModal';
 import AddPollFailureModal from './AddPollFailureModal';
+import LoadingPollsModal from './LoadingPollsModal';
 
 class Modal extends React.Component {
 
@@ -32,6 +33,8 @@ class Modal extends React.Component {
                 return <AddPollSuccessModal />;
             case 'ADD_POLL_FAILURE_MODAL':
                 return <AddPollFailureModal />;
+            case 'LOADING_POLLS_MODAL':
+                return <LoadingPollsModal />;
             default:
                 return null;
         }

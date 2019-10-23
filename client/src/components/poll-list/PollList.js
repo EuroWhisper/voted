@@ -1,20 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {setPolls} from '../../actions';
+import {setPolls, showLoadingPollsModal, hideModal} from '../../actions';
 import Poll from '../poll/Poll';
 import Axios from '../../axios-config';
 import './poll-list.css';
 
 class PollList extends React.Component {
-
+    
     // Fetch all polls from the database.
     async fetchPolls() {
         try {
+            this.props.showLoadingPollsModal();
             // 1. Fetch the polls from the database.
             const res = await Axios.get('/polls');
             const polls = res.data;
             // 2. Store the polls in the client-side state.
             this.props.setPolls(polls);
+            this.props.hideModal();
         } catch(error) {
             console.log(error);
         }
@@ -77,4 +79,4 @@ const mapStateToProps = function(state) {
     };
 };
 
-export default connect(mapStateToProps, {setPolls: setPolls})(PollList);
+export default connect(mapStateToProps, {setPolls: setPolls, showLoadingPollsModal: showLoadingPollsModal, hideModal: hideModal})(PollList);

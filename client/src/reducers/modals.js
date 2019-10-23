@@ -1,4 +1,4 @@
-import {SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, HIDE_MODAL} from '../actions/actiontypes';
+import {SHOW_ADD_POLL_MODAL, SHOW_ADD_POLL_SUCCESS_MODAL, SHOW_ADD_POLL_FAILURE_MODAL, SHOW_LOADING_POLLS_MODAL, HIDE_MODAL} from '../actions/actiontypes';
 const initialState = null;
 
 const modals = function(state = initialState, action) {
@@ -8,6 +8,8 @@ const modals = function(state = initialState, action) {
         case SHOW_ADD_POLL_SUCCESS_MODAL:
             return action.payload;
         case SHOW_ADD_POLL_FAILURE_MODAL:
+            return action.payload;
+        case SHOW_LOADING_POLLS_MODAL:
             return action.payload;
         case HIDE_MODAL:
             return null;

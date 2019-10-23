@@ -1,7 +1,6 @@
 # voted
 ## An anonymous voting app
 
-**Objectives**
 This app was built to demonstrate the following competencies:
 * Ability to utilize the React library to create a component-based application.
 * Ability to leverage Redux in order to improve state management of a React application.
